@@ -11,19 +11,17 @@
 @section('content')
     <div class="main-cadastro">
         <div class="left-cadastro">
-            <h1>Crie sua conta aqui!</h1>
+            <h1>Faça login aqui!</h1>
             <img src="/assets/img/delivery.svg" class="estoque-image" alt="estoque-laranja-anime">
         </div>
 
         <div class="right-cadastro">
             <div class="card-cadastro">
-                <form class="form-cadastro" action="{{ Route('user.store') }}" method="POST">
+                @error('login')
+                    <span class="error">{{ $message }}</span>
+                @enderror
+                <form class="form-cadastro" action="{{ Route('user.auth') }}" method="POST">
                     @csrf
-
-                    <div class="textfield">
-                        <label for="idnome">Nome:</label>
-                        <input type="text" name="nome" id="idnome" required minlength="3" maxlength="45" placeholder="Nome">
-                    </div>
 
                     <div class="textfield">
                         <label for="idemail">Email:</label>
@@ -35,12 +33,7 @@
                         <input type="password" name="password" id="idpassword" required placeholder="12345Ab@">
                     </div>
 
-                    <div class="textfield">
-                        <label for="idtel">Telefone:</label>
-                        <input type="text" name="tel" id="id tel" required placeholder="(31)91234-5678">
-                    </div>
-
-                    <input class="sub-buttom" type="submit" value="CADASTRAR">
+                    <input class="sub-buttom" type="submit" value="LOGIN">
                 </form>
             </div>
         </div>

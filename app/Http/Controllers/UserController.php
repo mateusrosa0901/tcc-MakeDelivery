@@ -14,19 +14,31 @@ class UserController extends Controller
 {
     public function login()
     {
-        //
-    }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+        $css = '/assets/css/users/create.css';
+        $title = 'Login';
+
+        return view('users.login', ['css' => $css, 'title' => $title]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function auth(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('dashboard');
+        }
+
+        return back()->withErrors([
+            'login' => 'Deu ruim!'
+        ]);
+    }
+
+
     public function create()
     {
         $css = '/assets/css/users/create.css';
@@ -35,9 +47,7 @@ class UserController extends Controller
         return view('users.create', ['css' => $css, 'title' => $title]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $user = new User();
@@ -48,6 +58,8 @@ class UserController extends Controller
         $user->telefone = $request->tel;
 
         $user->save();
+
+        return redirect()->route('user.login');
     }
 
     /**
