@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MotoboyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,13 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
     Route::get('/user/login', [UserController::class, 'login'])->name('user.login');
     Route::post('/user/auth', [UserController::class, 'auth'])->name('user.auth');
+});
+
+Route::controller(MotoboyController::class)->group(function () {
+    Route::get('/motoboy/cadastro', [MotoboyController::class, 'create'])->name('motoboy.create');
+    Route::post('/motoboy', [MotoboyController::class, 'store'])->name('motoboy.store');
+    Route::get('/motoboy/login', [MotoboyController::class, 'login'])->name('motoboy.login');
+    Route::post('/motoboy/auth', [MotoboyController::class, 'auth'])->name('motoboy.auth');
 });
 
 Route::controller(DashboardController::class)->group(function () {

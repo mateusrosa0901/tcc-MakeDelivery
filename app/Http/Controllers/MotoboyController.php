@@ -5,23 +5,44 @@ namespace App\Http\Controllers;
 use App\Models\Motoboy;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MotoboyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function login()
     {
-        //
+        $css = '/assets/css/users/create.css';
+        $title = 'Motoboy - Login';
+
+        return view('motoboys.login', ['css' => $css, 'title' => $title]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function auth(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended(route('dashboard'));
+        }
+
+        return back()->withErrors([
+            'login' => 'Deu ruim!'
+        ]);
+    }
+
     public function create()
     {
-        //
+        $css = '/assets/css/users/create.css';
+        $title = 'Motoboy - Cadastro';
+
+        return view('motoboys.create', ['css' => $css, 'title' => $title]);
     }
 
     /**
@@ -29,7 +50,18 @@ class MotoboyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $motoboy = new Motoboy();
+
+        $motoboy->nome = $request->nome;
+        $motoboy->email = $request->email;
+        $motoboy->password = Hash::make($request->password);
+        $motoboy->telefone = $request->tel;
+        $motoboy->cpf = $request->cpf;
+        $motoboy->placa = $request->placa;
+
+        $motoboy->save();
+
+        return redirect()->route('motoboy.login');
     }
 
     /**

@@ -8,7 +8,7 @@
     <div class="main-cadastro">
         <div class="left-cadastro">
             <h1>Faça login aqui!</h1>
-            <img src="/assets/img/users/delivery.svg" class="estoque-image" alt="estoque-laranja-anime">
+            <img src="/assets/img/motoboys/delivery.svg" class="estoque-image" alt="estoque-laranja-anime">
         </div>
 
         <div class="right-cadastro">
@@ -16,7 +16,7 @@
                 @error('login')
                     <span class="error">{{ $message }}</span>
                 @enderror
-                <form class="form-cadastro" action="{{ Route('user.auth') }}" method="POST">
+                <form class="form-cadastro" action="{{ Route('motoboy.auth') }}" method="POST">
                     @csrf
 
                     <div class="textfield">

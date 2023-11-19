@@ -8,12 +8,12 @@
     <div class="main-cadastro">
         <div class="left-cadastro">
             <h1>Crie sua conta aqui!</h1>
-            <img src="/assets/img/users/delivery.svg" class="estoque-image" alt="estoque-laranja-anime">
+            <img src="/assets/img/motoboys/delivery.svg" class="estoque-image" alt="estoque-laranja-anime">
         </div>
 
         <div class="right-cadastro">
             <div class="card-cadastro">
-                <form class="form-cadastro" action="{{ Route('user.store') }}" method="POST">
+                <form class="form-cadastro" action="{{ Route('motoboy.store') }}" method="POST">
                     @csrf
 
                     <div class="textfield">
@@ -34,6 +34,16 @@
                     <div class="textfield">
                         <label for="idtel">Telefone:</label>
                         <input type="text" name="tel" id="id tel" required placeholder="(31)91234-5678">
+                    </div>
+
+                    <div class="textfield">
+                        <label for="idcpf">CPF:</label>
+                        <input type="text" name="cpf" id="idcpf" required placeholder="CPF">
+                    </div>
+
+                    <div class="textfield">
+                        <label for="idplaca">Placa da Moto:</label>
+                        <input type="text" name="placa" id="idplaca" required placeholder="Placa">
                     </div>
 
                     <input class="sub-buttom" type="submit" value="CADASTRAR">

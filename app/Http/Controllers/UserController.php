@@ -15,7 +15,7 @@ class UserController extends Controller
     public function login()
     {
         $css = '/assets/css/users/create.css';
-        $title = 'Login';
+        $title = 'User - Login';
 
         return view('users.login', ['css' => $css, 'title' => $title]);
     }
@@ -42,7 +42,7 @@ class UserController extends Controller
     public function create()
     {
         $css = '/assets/css/users/create.css';
-        $title = 'Cadastro';
+        $title = 'User - Cadastro';
 
         return view('users.create', ['css' => $css, 'title' => $title]);
     }
