@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,8 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/user', [UserController::class, 'store'])->name('user.store');
     Route::get('/user/login', [UserController::class, 'login'])->name('user.login');
     Route::post('/user/auth', [UserController::class, 'auth'])->name('user.auth');
+});
+
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 });

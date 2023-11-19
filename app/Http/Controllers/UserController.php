@@ -20,7 +20,7 @@ class UserController extends Controller
         return view('users.login', ['css' => $css, 'title' => $title]);
     }
 
-    public function auth(Request $request)
+    public function auth(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
@@ -30,7 +30,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            return redirect()->intended(route('dashboard'));
         }
 
         return back()->withErrors([

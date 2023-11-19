@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
-@section('css')
-    {{ $css }}
-@endsection
+@section('css', $css)
 
-@section('title')
-    {{ $title }}
-@endsection
+@section('title', $title)
 
 @section('content')
     <div class="main-cadastro">
