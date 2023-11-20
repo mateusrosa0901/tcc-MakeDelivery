@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motoboy;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -60,9 +61,16 @@ class MotoboyController extends Controller
         $motoboy->cpf = $request->cpf;
         $motoboy->placa = $request->placa;
 
-        $motoboy->save();
+        try {
+            $motoboy->save();
 
-        return redirect()->route('motoboy.login');
+            return redirect()->route('motoboy.login');
+
+        } catch (QueryException $exception)  {
+            return back()->withErrors([
+                'cadastro' => $exception->errorInfo[2],
+            ]);
+        }        
     }
 
     /**

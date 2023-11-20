@@ -21,17 +21,17 @@ Route::get('/', function () {
 });
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/user/cadastro', [UserController::class, 'create'])->name('user.create');
-    Route::post('/user', [UserController::class, 'store'])->name('user.store');
-    Route::get('/user/login', [UserController::class, 'login'])->name('user.login');
-    Route::post('/user/auth', [UserController::class, 'auth'])->name('user.auth');
+    Route::get('/user/cadastro', 'create')->name('user.create');
+    Route::post('/user', 'store')->name('user.store');
+    Route::get('/user/login', 'login')->name('user.login');
+    Route::post('/user/auth', 'auth')->name('user.auth');
 });
 
 Route::controller(MotoboyController::class)->group(function () {
-    Route::get('/motoboy/cadastro', [MotoboyController::class, 'create'])->name('motoboy.create');
-    Route::post('/motoboy', [MotoboyController::class, 'store'])->name('motoboy.store');
-    Route::get('/motoboy/login', [MotoboyController::class, 'login'])->name('motoboy.login');
-    Route::post('/motoboy/auth', [MotoboyController::class, 'auth'])->name('motoboy.auth');
+    Route::get('/motoboy/cadastro', 'create')->name('motoboy.create');
+    Route::post('/motoboy', 'store')->name('motoboy.store');
+    Route::get('/motoboy/login', 'login')->name('motoboy.login');
+    Route::post('/motoboy/auth', 'auth')->name('motoboy.auth');
 });
 
 Route::controller(DashboardController::class)->group(function () {

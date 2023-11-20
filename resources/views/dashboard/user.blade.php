@@ -5,5 +5,7 @@
 @section('title', $title)
 
 @section('content')
-    {{ auth()->user()->nome }}
+    <header>
+        
+    </header>
 @endsection

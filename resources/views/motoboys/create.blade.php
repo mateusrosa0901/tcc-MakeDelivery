@@ -13,6 +13,9 @@
 
         <div class="right-cadastro">
             <div class="card-cadastro">
+                @error('cadastro')
+                    <span class="error">{{ $message }}</span>
+                @enderror
                 <form class="form-cadastro" action="{{ Route('motoboy.store') }}" method="POST">
                     @csrf
 
