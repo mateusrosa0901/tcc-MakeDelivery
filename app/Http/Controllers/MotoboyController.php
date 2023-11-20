@@ -26,7 +26,8 @@ class MotoboyController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::guard('motoboys')->attempt($credentials)) {
+            config()->set('auth.defaults.guard', 'motoboys');
             $request->session()->regenerate();
 
             return redirect()->intended(route('dashboard'));
