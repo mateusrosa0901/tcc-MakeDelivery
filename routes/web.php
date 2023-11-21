@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MotoboyController;
+use App\Http\Controllers\MotoboyDashboardController;
 use App\Http\Controllers\UserDashboardController;
 
 /*
@@ -36,4 +37,8 @@ Route::controller(MotoboyController::class)->group(function () {
 
 Route::controller(UserDashboardController::class)->group(function () {
     Route::get('/user/dashboard', 'home')->middleware('basic.auth')->name('user.dashboard');
+});
+
+Route::controller(MotoboyDashboardController::class)->group(function () {
+    Route::get('/motoboy/dashboard', 'home')->middleware('basic.auth')->name('motoboy.dashboard');
 });

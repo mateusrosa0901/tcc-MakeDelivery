@@ -29,10 +29,11 @@ class MotoboyController extends Controller
 
         if (Auth::guard('motoboys')->attempt($credentials)) {
             config()->set('auth.defaults.guard', 'motoboys');
+            auth()->shouldUse('motoboys');
             $request->session()->regenerate();
             //dd(Auth()->user());
 
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended(route('motoboy.dashboard'));
         }
 
         return back()->withErrors([

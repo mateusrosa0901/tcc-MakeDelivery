@@ -9,7 +9,7 @@ class UserDashboardController extends Controller
 {
     public function home()
     {
-        $css = '/assets/css/users/create.css';
+        $css = '/assets/css/users/dashboard.css';
         $title = 'User - Dashboard';
 
         return view('dashboard.user', ['css' => $css, 'title' => $title]);
