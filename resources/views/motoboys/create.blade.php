@@ -36,7 +36,7 @@
 
                     <div class="textfield">
                         <label for="idtel">Telefone:</label>
-                        <input type="text" name="tel" id="id tel" required placeholder="(31)91234-5678">
+                        <input type="text" name="tel" id="idtel" required placeholder="(31)91234-5678">
                     </div>
 
                     <div class="textfield">
@@ -54,4 +54,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#idtel").mask('(00)0 0000-0000', {reverse: false});
+        });
+
+        $(document).ready(function () { 
+            $("#idcpf").mask('000.000.000-00', {reverse: true});
+        });
+
+        $(document).ready(function() {
+            $("#idplaca").keyup(function(){
+                $(this).val($(this).val().toUpperCase());
+            })
+        })
+    </script>
 @endsection

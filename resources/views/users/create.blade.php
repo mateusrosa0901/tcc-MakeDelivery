@@ -33,7 +33,7 @@
 
                     <div class="textfield">
                         <label for="idtel">Telefone:</label>
-                        <input type="text" name="tel" id="id tel" required placeholder="(31)91234-5678">
+                        <input type="text" name="tel" id="idtel" required placeholder="(31)91234-5678">
                     </div>
 
                     <input class="sub-buttom" type="submit" value="CADASTRAR">
@@ -41,4 +41,10 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        $(document).ready(function () { 
+            $("#idtel").mask('(00)0 0000-0000', {reverse: false});
+        });
+    </script>
 @endsection

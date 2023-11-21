@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('telefone', 14);
+            $table->string('telefone', 15);
             $table->string('cpf', 14);
             $table->string('placa');
             $table->unsignedBigInteger('id_status');
