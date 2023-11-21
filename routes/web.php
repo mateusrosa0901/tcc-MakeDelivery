@@ -35,5 +35,5 @@ Route::controller(MotoboyController::class)->group(function () {
 });
 
 Route::controller(DashboardController::class)->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
 });

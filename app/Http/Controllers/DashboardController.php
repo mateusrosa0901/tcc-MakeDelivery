@@ -12,6 +12,6 @@ class DashboardController extends Controller
         $css = '/assets/css/users/create.css';
         $title = 'Dash';
 
-        return view('users.dashboard', ['css' => $css, 'title' => $title]);
+        return view('dashboard.user', ['css' => $css, 'title' => $title]);
     }
 }

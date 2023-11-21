@@ -30,6 +30,7 @@ class MotoboyController extends Controller
         if (Auth::guard('motoboys')->attempt($credentials)) {
             config()->set('auth.defaults.guard', 'motoboys');
             $request->session()->regenerate();
+            //dd(Auth()->user());
 
             return redirect()->intended(route('dashboard'));
         }
@@ -70,7 +71,7 @@ class MotoboyController extends Controller
             return back()->withErrors([
                 'cadastro' => $exception->errorInfo[2],
             ]);
-        }        
+        }
     }
 
     /**
