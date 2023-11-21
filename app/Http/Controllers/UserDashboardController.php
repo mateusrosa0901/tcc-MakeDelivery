@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class DashboardController extends Controller
+class UserDashboardController extends Controller
 {
-    public function dashboard()
+    public function home()
     {
         $css = '/assets/css/users/create.css';
-        $title = 'Dash';
+        $title = 'User - Dashboard';
 
         return view('dashboard.user', ['css' => $css, 'title' => $title]);
     }

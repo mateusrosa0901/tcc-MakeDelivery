@@ -132,8 +132,8 @@ body * {
         flex-direction: column;
     }
 
-    .left-cadastro > img {
-        display: none;
+    .estoque-image {
+        width: 80%;
     }
 
     .left-cadastro {
