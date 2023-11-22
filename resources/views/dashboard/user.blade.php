@@ -11,13 +11,32 @@
                 <img src="/assets/img/users/delivery.svg" alt="">
             </div>
 
-            <span>{{ auth()->user()->nome }}</span>
+            <span>{{ Auth::user()->nome }}</span>
         </header>
 
         <div class="content">
-            <div class="btn"><a href="/">Nova Entrega</a></div>
+            <div class="left-user">
+                <div class="user">
+                    <div class="user-img">
+                        <img src="/assets/img/users/Foto_Perfil.jpg" alt="">
+                    </div>
+
+                    <span>{{ Auth::user()->nome }}</span>
+                </div>
+
+                <div class="nav">
+                    <ul>
+                        <li>Minhas entregas</li>
+                        <li>Conta</li>
+                        <li>Sair</li>
+                    </ul>
+                </div>
+            </div>
 
 
+            <div class="container">
+                
+            </div>
         </div>
     </div>
     

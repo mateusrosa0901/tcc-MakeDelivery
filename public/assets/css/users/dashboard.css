@@ -40,21 +40,41 @@ header span:hover {
 
 .content {
     display: flex;
+    flex-direction: row;
+    height: 90vh;
+    width: 100vw;
+}
+
+.left-user {
+    width: 20%;
+    box-shadow: inset  0 0 1em rgb(59, 57, 45);
+    
+}
+
+.user {
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-.btn {
-    margin-top: 20px;
-}
-
-.btn a {
+.user span {
+    color: #834A8D;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    color: aliceblue;
-    text-decoration: none;
-    background-color: #834A8D;
-    padding: 8px;
-    border-radius: 6px;
+    font-size: larger;
+}
+
+.user-img {
+    width: 80%;
+    height: 80%;
+    margin-bottom: 15px;
+}
+
+.user-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
