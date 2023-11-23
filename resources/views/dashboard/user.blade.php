@@ -4,6 +4,12 @@
 
 @section('title', $title)
 
+@section('head')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="main">
         <header>
@@ -24,13 +30,11 @@
                     <span>{{ Auth::user()->nome }}</span>
                 </div>
 
-                <div class="nav">
-                    <ul>
-                        <li>Minhas entregas</li>
-                        <li>Conta</li>
-                        <li>Sair</li>
-                    </ul>
-                </div>
+                <aside>
+                    <a href="#">Minhas entregas</a>
+                    <a href="#">Conta</a>
+                    <a href="{{ route('user.logout') }}">Sair</a>
+                </aside>
             </div>
 
 

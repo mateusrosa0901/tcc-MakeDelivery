@@ -26,6 +26,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/user', 'store')->name('user.store');
     Route::get('/user/login', 'login')->name('user.login');
     Route::post('/user/auth', 'auth')->name('user.auth');
+    Route::get('/user/logout', 'logout')->name('user.logout');
 });
 
 Route::controller(MotoboyController::class)->group(function () {
