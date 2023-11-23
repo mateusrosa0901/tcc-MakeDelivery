@@ -75,7 +75,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $title = 'User - Conta';
+
+        return view('users.edit', ['title' => $title]);
     }
 
     /**

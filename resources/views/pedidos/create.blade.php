@@ -30,7 +30,7 @@
                 </div>
 
                 <aside>
-                    <a href="#">Minhas entregas</a>
+                    <a href="{{ route('user.dashboard') }}">Minhas entregas</a>
                     <a href="{{ route('user.edit') }}">Conta</a>
                     <a href="{{ route('user.logout') }}">Sair</a>
                 </aside>
@@ -38,7 +38,13 @@
 
 
             <div class="container">
-                <a class="btn" href="{{ route('pedido.create') }}">Nova Entrega</a>
+                <form action="" method="post">
+                    <input type="text" name="desc" id="iddesc" required placeholder="Descrição do pedido">
+                    <input type="text" name="peso" id="idpeso" required placeholder="Peso do pedido">
+                    <input type="text" name="destinatario" id="iddestinatario">
+
+                    <input type="submit" value="Nova Entrega">
+                </form>
             </div>
         </div>
     </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MotoboyController;
 use App\Http\Controllers\MotoboyDashboardController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\UserDashboardController;
 
 /*
@@ -27,6 +28,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/login', 'login')->name('user.login');
     Route::post('/user/auth', 'auth')->name('user.auth');
     Route::get('/user/logout', 'logout')->name('user.logout');
+    Route::get('/user/edit', 'edit')->middleware('basic.auth')->name('user.edit');
 });
 
 Route::controller(MotoboyController::class)->group(function () {
@@ -42,4 +44,8 @@ Route::controller(UserDashboardController::class)->group(function () {
 
 Route::controller(MotoboyDashboardController::class)->group(function () {
     Route::get('/motoboy/dashboard', 'home')->middleware('basic.auth')->name('motoboy.dashboard');
+});
+
+Route::controller(PedidoController::class)->group(function () {
+    Route::get('/pedido/create', 'create')->middleware('basic.auth')->name('pedido.create');
 });
