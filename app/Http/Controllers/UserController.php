@@ -34,7 +34,7 @@ class UserController extends Controller
         }
 
         return back()->withErrors([
-            'login' => 'Deu ruim!'
+            'login' => 'Email ou senha incorreto!'
         ]);
     }
 
