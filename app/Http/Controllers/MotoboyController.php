@@ -14,10 +14,9 @@ class MotoboyController extends Controller
 {
     public function login()
     {
-        $css = '/assets/css/users/create.css';
         $title = 'Motoboy - Login';
 
-        return view('motoboys.login', ['css' => $css, 'title' => $title]);
+        return view('motoboys.login', ['title' => $title]);
     }
 
     public function auth(Request $request): RedirectResponse
@@ -43,10 +42,9 @@ class MotoboyController extends Controller
 
     public function create()
     {
-        $css = '/assets/css/users/create.css';
         $title = 'Motoboy - Cadastro';
 
-        return view('motoboys.create', ['css' => $css, 'title' => $title]);
+        return view('motoboys.create', ['title' => $title]);
     }
 
     /**

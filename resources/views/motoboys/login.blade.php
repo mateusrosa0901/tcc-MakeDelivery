@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('css', $css)
-
 @section('title', $title)
+
+@section('head')
+    <link rel="stylesheet" href="/assets/css/users/create.css">
+@endsection
 
 @section('content')
     <div class="main-cadastro">

@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('css', $css)
-
 @section('title', $title)
+
+@section('head')
+    <link rel="stylesheet" href="/assets/css/users/create.css">
+@endsection
 
 @section('content')
     <div class="main-cadastro">
@@ -60,7 +62,7 @@
             $("#idtel").mask('(00)0 0000-0000', {reverse: false});
         });
 
-        $(document).ready(function () { 
+        $(document).ready(function () {
             $("#idcpf").mask('000.000.000-00', {reverse: true});
         });
 

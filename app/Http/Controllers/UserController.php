@@ -14,10 +14,9 @@ class UserController extends Controller
 {
     public function login()
     {
-        $css = '/assets/css/users/create.css';
         $title = 'User - Login';
 
-        return view('users.login', ['css' => $css, 'title' => $title]);
+        return view('users.login', ['title' => $title]);
     }
 
     public function auth(Request $request): RedirectResponse
@@ -41,10 +40,9 @@ class UserController extends Controller
 
     public function create()
     {
-        $css = '/assets/css/users/create.css';
         $title = 'User - Cadastro';
 
-        return view('users.create', ['css' => $css, 'title' => $title]);
+        return view('users.create', ['title' => $title]);
     }
 
 
