@@ -38,18 +38,23 @@
 
 
             <div class="container">
-                <form action="" method="post">
+                <form action="{{route('user.update')}}" method="post">
+                    @csrf
+                    @method('put')
+
                     <label for="idcpf">CPF:</label>
-                    <input type="text" name="cpf" id="idcpf">
+                    <input type="text" name="cpf" id="idcpf" placeholder="{{Auth::user()->cpf}}">
 
                     <label for="idcep">CEP:</label>
-                    <input type="text" name="cep" id="idcep">
+                    <input type="text" name="cep" id="idcep" placeholder="{{Auth::user()->cep}}">
 
                     <label for="idnumero">N°</label>
-                    <input type="text" name="numero" id="idnumero">
+                    <input type="text" name="numero" id="idnumero" placeholder="{{Auth::user()->numero}}">
+
+                    <input type="submit" value="Atualizar">
                 </form>
             </div>
         </div>
     </div>
-    
+
 @endsection

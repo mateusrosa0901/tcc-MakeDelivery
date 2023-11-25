@@ -28,7 +28,8 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/login', 'login')->name('user.login');
     Route::post('/user/auth', 'auth')->name('user.auth');
     Route::get('/user/logout', 'logout')->name('user.logout');
-    Route::get('/user/edit', 'edit')->middleware('basic.auth')->name('user.edit');
+    Route::get('/user/edit', 'edit')->middleware('user.auth')->name('user.edit');
+    Route::put('/user', 'update')->name('user.update');
 });
 
 Route::controller(MotoboyController::class)->group(function () {

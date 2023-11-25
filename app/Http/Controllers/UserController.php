@@ -48,14 +48,12 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $user = new User();
-
-        $user->nome = $request->nome;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->telefone = $request->tel;
-
-        $user->save();
+        $user = User::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'telefone' => $request->tel,
+        ]);
 
         return redirect()->route('user.login');
     }
@@ -83,7 +81,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        User::findOrFail(Auth::user()->id)->update($request->all());
+
+        return redirect()->route('user.edit');
     }
 
     /**
