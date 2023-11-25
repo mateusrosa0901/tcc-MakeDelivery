@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class BasicAuth
+class MotoboyAuth
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class BasicAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check()) {
-            return redirect()->route('user.login');
+        if(!Auth::guard('motoboys')->check()) {
+            return redirect()->route('motoboy.login');
         }
         return $next($request);
     }

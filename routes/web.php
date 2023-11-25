@@ -39,11 +39,11 @@ Route::controller(MotoboyController::class)->group(function () {
 });
 
 Route::controller(UserDashboardController::class)->group(function () {
-    Route::get('/user/dashboard', 'home')->middleware('basic.auth')->name('user.dashboard');
+    Route::get('/user/dashboard', 'home')->middleware('user.auth')->name('user.dashboard');
 });
 
 Route::controller(MotoboyDashboardController::class)->group(function () {
-    Route::get('/motoboy/dashboard', 'home')->middleware('basic.auth')->name('motoboy.dashboard');
+    Route::get('/motoboy/dashboard', 'home')->middleware('motoboy.auth')->name('motoboy.dashboard');
 });
 
 Route::controller(PedidoController::class)->group(function () {
