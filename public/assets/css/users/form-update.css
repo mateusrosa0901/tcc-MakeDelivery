@@ -1,0 +1,19 @@
+.update {
+    width: 60%;
+}
+
+.row {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.cep {
+    width: 70%;
+}
+.numero {
+    width: 20%;
+}

@@ -4,9 +4,8 @@
 
 @section('head')
     <link rel="stylesheet" href="/assets/css/users/dashboard.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/users/create.css">
+    <link rel="stylesheet" href="/assets/css/users/form-update.css">
 @endsection
 
 @section('content')
@@ -38,23 +37,44 @@
 
 
             <div class="container">
-                <form action="{{route('user.update')}}" method="post">
+                <form class="form-cadastro update" action="{{route('user.update')}}" method="post">
                     @csrf
                     @method('put')
 
-                    <label for="idcpf">CPF:</label>
-                    <input type="text" name="cpf" id="idcpf" placeholder="{{Auth::user()->cpf}}">
+                    <div class="textfield">
+                        <label for="idnome">Nome:</label>
+                        <input type="text" name="nome" id="idnome" required minlength="3" maxlength="45" value="{{Auth::user()->nome}}">
+                    </div>
 
-                    <label for="idcep">CEP:</label>
-                    <input type="text" name="cep" id="idcep" placeholder="{{Auth::user()->cep}}">
+                    <div class="textfield">
+                        <label for="idcpf">CPF:</label>
+                        <input type="text" name="cpf" id="idcpf" value="{{Auth::user()->cpf}}">
+                    </div>
 
-                    <label for="idnumero">N°</label>
-                    <input type="text" name="numero" id="idnumero" placeholder="{{Auth::user()->numero}}">
+                    <div class="textfield row">
+                        <div class="textfield cep">
+                            <label for="idcep">CEP:</label>
+                            <input type="text" name="cep" id="idcep" value="{{Auth::user()->cep}}">
+                        </div>
+                        <div class="textfield numero">
+                            <label for="idnumero">N°</label>
+                            <input type="text" name="numero" id="idnumero" value="{{Auth::user()->numero}}">
+                        </div>
+                    </div>
 
-                    <input type="submit" value="Atualizar">
+                    <input class="sub-buttom" type="submit" value="Atualizar">
                 </form>
             </div>
         </div>
     </div>
 
+    <script>
+        $(document).ready(function () {
+            $("#idcpf").mask('000.000.000-00', {reverse: false});
+        });
+
+        $(document).ready(function () {
+            $("#idcep").mask('00000-000', {reverse: false});
+        });
+    </script>
 @endsection
