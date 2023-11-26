@@ -37,7 +37,7 @@
 
 
             <div class="container">
-                <form class="form-cadastro update" action="{{route('user.update')}}" method="post">
+                <form class="form-cadastro update" action="{{ route('user.update') }}" method="post">
                     @csrf
                     @method('put')
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pedido;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,8 @@ class PedidoController extends Controller
     {
         $tel = Auth::user()->telefone;
         $code = substr($tel, -4);
-
+        $destinatario = User::findOrFail($request->id);
+        dd($destinatario);
 
         /*
         Pedido::create([

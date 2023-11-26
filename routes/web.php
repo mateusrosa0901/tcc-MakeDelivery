@@ -49,5 +49,5 @@ Route::controller(MotoboyDashboardController::class)->group(function () {
 
 Route::controller(PedidoController::class)->group(function () {
     Route::get('/pedido/create', 'create')->middleware('user.auth')->name('pedido.create');
-    Route::post('/pedido', 'store')->middleware('user.auth')->name('pedido.store');
+    Route::post('/pedido', 'store')->name('pedido.store');
 });

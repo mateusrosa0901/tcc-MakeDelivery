@@ -44,7 +44,7 @@
                     <input type="text" name="desc" id="iddesc" required placeholder="Descrição do pedido">
                     <input type="text" name="peso" id="idpeso" required placeholder="Peso do pedido">
                     <input type="text" name="tamanho" id="idtamanho" required placeholder="Tamanho do pedido">
-                    <input type="text" name="destinatario" id="iddestinatario">
+                    <input type="text" name="destinatario" id="iddestinatario" placeholder="destinatario">
 
                     <input type="submit" value="Nova Entrega">
                 </form>
