@@ -29,7 +29,7 @@
                 </div>
 
                 <aside>
-                    <a href="{{ route('user.dashboard') }}">Minhas entregas</a>
+                    <a href="{{ route('user.dashboard') }}">Meus Pedidos</a>
                     <a href="#">Conta</a>
                     <a href="{{ route('user.logout') }}">Sair</a>
                 </aside>

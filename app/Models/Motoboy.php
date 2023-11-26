@@ -11,5 +11,16 @@ class Motoboy extends Authenticatable
     use HasFactory;
 
     protected $table = 'motoboys';
+
     protected $attributes = ['id_status' => 1];
+
+    protected $fillable = [
+        'nome',
+        'email',
+        'password',
+        'telefone',
+        'cpf',
+        'placa',
+        'id_status',
+    ];
 }

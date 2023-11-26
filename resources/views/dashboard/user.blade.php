@@ -30,7 +30,7 @@
                 </div>
 
                 <aside>
-                    <a href="#">Minhas entregas</a>
+                    <a href="#">Meus Pedidos</a>
                     <a href="{{ route('user.edit') }}">Conta</a>
                     <a href="{{ route('user.logout') }}">Sair</a>
                 </aside>
@@ -38,9 +38,9 @@
 
 
             <div class="container">
-                <a class="btn" href="{{ route('pedido.create') }}">Nova Entrega</a>
+                <a class="btn" href="{{ route('pedido.create') }}">Novo Pedido</a>
             </div>
         </div>
     </div>
-    
+
 @endsection

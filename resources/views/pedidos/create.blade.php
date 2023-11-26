@@ -30,7 +30,7 @@
                 </div>
 
                 <aside>
-                    <a href="{{ route('user.dashboard') }}">Minhas entregas</a>
+                    <a href="{{ route('user.dashboard') }}">Meus Pedidos</a>
                     <a href="{{ route('user.edit') }}">Conta</a>
                     <a href="{{ route('user.logout') }}">Sair</a>
                 </aside>
@@ -38,9 +38,12 @@
 
 
             <div class="container">
-                <form action="" method="post">
+                <form action="{{ route('pedido.store') }}" method="post">
+                    @csrf
+
                     <input type="text" name="desc" id="iddesc" required placeholder="Descrição do pedido">
                     <input type="text" name="peso" id="idpeso" required placeholder="Peso do pedido">
+                    <input type="text" name="tamanho" id="idtamanho" required placeholder="Tamanho do pedido">
                     <input type="text" name="destinatario" id="iddestinatario">
 
                     <input type="submit" value="Nova Entrega">
@@ -48,5 +51,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

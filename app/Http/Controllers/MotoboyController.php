@@ -52,15 +52,15 @@ class MotoboyController extends Controller
      */
     public function store(Request $request)
     {
-        $motoboy = new Motoboy();
-
-        $motoboy->nome = $request->nome;
-        $motoboy->email = $request->email;
-        $motoboy->password = Hash::make($request->password);
-        $motoboy->telefone = $request->tel;
-        $motoboy->cpf = $request->cpf;
-        $motoboy->placa = $request->placa;
-
+        $motoboy = Motoboy::create([
+            'nome' => $request->nome,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'telefone' => $request->tel,
+            'cpf' => $request->cpf,
+            'placa' => $request->placa,
+        ]);
+        
         try {
             $motoboy->save();
 

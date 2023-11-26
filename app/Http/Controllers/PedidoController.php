@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -31,7 +32,16 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tel = Auth::user()->telefone;
+        $code = substr($tel, -4);
+
+
+        /*
+        Pedido::create([
+            'code' => $code
+            'desc' => $request->desc
+        ]);
+        */
     }
 
     /**
