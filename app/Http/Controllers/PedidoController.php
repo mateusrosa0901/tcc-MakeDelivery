@@ -35,15 +35,41 @@ class PedidoController extends Controller
     {
         $tel = Auth::user()->telefone;
         $code = substr($tel, -4);
-        $destinatario = User::findOrFail($request->id);
-        dd($destinatario);
 
-        /*
+        $remetente = User::findOrFail(Auth::user()->id);
+        $destinatario = User::findOrFail($request->destinatario);
+
+        $apiKey = 'AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs';
+
+        $origem = urlencode("$remetente->logradouro, $remetente->numero - $remetente->bairro, $remetente->cidade - $remetente->uf, $remetente->cep");
+        $destino = urlencode("$destinatario->logradouro, $destinatario->numero - $destinatario->bairro, $destinatario->cidade - $destinatario->uf, $destinatario->cep");
+
+        $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=$origem&destinations=$destino&mode=driving&language=pt-BR&sensor=false&key=$apiKey";
+
+        $data = json_decode(file_get_contents($url), true);
+
+        $distancia = $data['rows'][0]['elements'][0]['distance']['value'] / 1000;
+        $tempo = $data['rows'][0]['elements'][0]['duration']['value'] / 60;
+
+        $preco_peso = $request->peso * 0.50;
+        $preco_distancia = $distancia * 0.50;
+        $preco_tempo = $tempo * 0.30;
+
+        $preco = $preco_peso + $preco_distancia + $preco_tempo;
+
         Pedido::create([
-            'code' => $code
-            'desc' => $request->desc
+            'code' => $code,
+            'desc' => $request->desc,
+            'distancia' => $distancia,
+            'tempo' => $tempo,
+            'preco' => $preco,
+            'peso' => $request->peso,
+            'tamanho' => $request->tamanho,
+            'id_destinatario' => $request->destinatario,
+            'id_remetente' => Auth::user()->id,
         ]);
-        */
+
+        return redirect()->route('user.dashboard');
     }
 
     /**

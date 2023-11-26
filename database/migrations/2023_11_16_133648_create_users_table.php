@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('telefone', 15)->unique();
             $table->string('cpf', 14)->nullable()->unique();
             $table->string('cep', 9)->nullable();
+            $table->string('logradouro')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf')->nullable();
             $table->string('numero', 10)->nullable();
             $table->timestamps();
         });

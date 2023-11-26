@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserDashboardController extends Controller
 {
@@ -11,6 +13,8 @@ class UserDashboardController extends Controller
     {
         $title = 'User - Dashboard';
 
-        return view('dashboard.user', ['title' => $title]);
+        $pedidos = Pedido::where('id_remetente', '=', Auth::user()->id)->get();
+
+        return view('dashboard.user', ['title' => $title, 'pedidos' => $pedidos]);
     }
 }

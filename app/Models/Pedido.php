@@ -24,6 +24,5 @@ class Pedido extends Model
         'id_status',
         'id_destinatario',
         'id_remetente',
-        'id_motoboy',
     ];
 }

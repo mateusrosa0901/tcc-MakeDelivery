@@ -39,6 +39,10 @@
 
             <div class="container">
                 <a class="btn" href="{{ route('pedido.create') }}">Novo Pedido</a>
+
+                @foreach ($pedidos as $pedido)
+                    <p>{{$pedido->id}}</p>
+                @endforeach
             </div>
         </div>
     </div>

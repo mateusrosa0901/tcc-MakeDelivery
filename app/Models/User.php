@@ -19,6 +19,10 @@ class User extends Authenticatable
         'telefone',
         'cpf',
         'cep',
+        'logradouro',
+        'bairro',
+        'cidade',
+        'uf',
         'numero',
     ];
 }

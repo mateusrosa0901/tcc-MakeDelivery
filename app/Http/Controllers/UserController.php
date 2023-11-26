@@ -81,7 +81,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        User::findOrFail(Auth::user()->id)->update($request->all());
+        $cep = urlencode($request->cep);
+        $url = "https://viacep.com.br/ws/$cep/json/";
+
+        $data = json_decode(file_get_contents($url), true);
+
+        User::findOrFail(Auth::user()->id)->update([
+            'nome' => $request->nome,
+            'cpf' => $request->cpf,
+            'cep' => $request->cep,
+            'logradouro' => $data['logradouro'],
+            'bairro' => $data['bairro'],
+            'cidade' => $data['localidade'],
+            'uf' => $data['uf'],
+            'numero' => $request->numero,
+        ]);
 
         return redirect()->route('user.edit');
     }

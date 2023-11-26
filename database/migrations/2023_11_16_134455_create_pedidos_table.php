@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_status');
             $table->unsignedBigInteger('id_destinatario');
             $table->unsignedBigInteger('id_remetente');
-            $table->unsignedBigInteger('id_motoboy')->nullable;
+            $table->unsignedBigInteger('id_motoboy')->nullable();
             $table->foreign('id_status')->references('id')->on('status_pedidos');
             $table->foreign('id_destinatario')->references('id')->on('users');
             $table->foreign('id_remetente')->references('id')->on('users');
