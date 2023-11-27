@@ -11,7 +11,7 @@ class Pedido extends Model
 
     protected $table = 'pedidos';
 
-    protected $attributes = ['id_status' => 1];
+    protected $attributes = ['status' => 'Confirmando'];
 
     protected $fillable = [
         'code',
@@ -21,7 +21,7 @@ class Pedido extends Model
         'preco',
         'peso',
         'tamanho',
-        'id_status',
+        'status',
         'id_destinatario',
         'id_remetente',
     ];

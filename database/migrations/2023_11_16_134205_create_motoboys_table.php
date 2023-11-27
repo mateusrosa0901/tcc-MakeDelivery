@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('telefone', 15);
             $table->string('cpf', 14);
             $table->string('placa');
-            $table->unsignedBigInteger('id_status');
-            $table->foreign('id_status')->references('id')->on('status_motoboys');
+            $table->string('status');
             $table->timestamps();
         });
     }

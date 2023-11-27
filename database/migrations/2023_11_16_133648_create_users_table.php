@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('cidade')->nullable();
             $table->string('uf')->nullable();
             $table->string('numero', 10)->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }

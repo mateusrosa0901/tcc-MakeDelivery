@@ -12,6 +12,8 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
+    protected $attributes = ['status' => 'ativo'];
+
     protected $fillable = [
         'nome',
         'email',
@@ -24,6 +26,7 @@ class User extends Authenticatable
         'cidade',
         'uf',
         'numero',
+        'status'
     ];
 
     protected $hidden = [

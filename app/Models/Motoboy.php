@@ -12,7 +12,7 @@ class Motoboy extends Authenticatable
 
     protected $table = 'motoboys';
 
-    protected $attributes = ['id_status' => 1];
+    protected $attributes = ['status' => 'offline'];
 
     protected $fillable = [
         'nome',
@@ -21,6 +21,6 @@ class Motoboy extends Authenticatable
         'telefone',
         'cpf',
         'placa',
-        'id_status',
+        'status',
     ];
 }
