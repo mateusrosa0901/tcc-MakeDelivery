@@ -48,11 +48,23 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $cep_url = urlencode($request->cep);
+        $url = "https://viacep.com.br/ws/$cep_url/json/";
+
+        $data = json_decode(file_get_contents($url), true);
+
         $user = User::create([
             'nome' => $request->nome,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'telefone' => $request->tel,
+            'cpf' => $request->cpf,
+            'cep' => $request->cep,
+            'logradouro' => $data['logradouro'],
+            'bairro' => $data['bairro'],
+            'cidade' => $data['localidade'],
+            'uf' => $data['uf'],
+            'numero' => $request->numero,
         ]);
 
         return redirect()->route('user.login');
@@ -81,8 +93,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $cep = urlencode($request->cep);
-        $url = "https://viacep.com.br/ws/$cep/json/";
+        $cep_url = urlencode($request->cep);
+        $url = "https://viacep.com.br/ws/$cep_url/json/";
 
         $data = json_decode(file_get_contents($url), true);
 

@@ -4,6 +4,7 @@
 
 @section('head')
     <link rel="stylesheet" href="/assets/css/users/create.css">
+    <link rel="stylesheet" href="/assets/css/users/form-update.css">
 @endsection
 
 @section('content')
@@ -35,7 +36,23 @@
 
                     <div class="textfield">
                         <label for="idtel">Telefone:</label>
-                        <input type="text" name="tel" id="idtel" required placeholder="(31)91234-5678">
+                        <input type="text" name="tel" id="idtel" required placeholder="(00)9 0000-0000">
+                    </div>
+
+                    <div class="textfield">
+                        <label for="idcpf">CPF:</label>
+                        <input type="text" name="cpf" id="idcpf" placeholder="000.000.000-00">
+                    </div>
+
+                    <div class="textfield row">
+                        <div class="textfield cep">
+                            <label for="idcep">CEP:</label>
+                            <input type="text" name="cep" id="idcep" placeholder="00000-000">
+                        </div>
+                        <div class="textfield numero">
+                            <label for="idnumero">N°</label>
+                            <input type="text" name="numero" id="idnumero" placeholder="00A">
+                        </div>
                     </div>
 
                     <input class="sub-buttom" type="submit" value="CADASTRAR">
@@ -47,6 +64,14 @@
     <script>
         $(document).ready(function () {
             $("#idtel").mask('(00)0 0000-0000', {reverse: false});
+        });
+
+        $(document).ready(function () {
+            $("#idcpf").mask('000.000.000-00', {reverse: false});
+        });
+
+        $(document).ready(function () {
+            $("#idcep").mask('00000-000', {reverse: false});
         });
     </script>
 @endsection

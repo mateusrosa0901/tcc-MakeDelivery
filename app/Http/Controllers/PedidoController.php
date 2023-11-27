@@ -33,11 +33,10 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $tel = Auth::user()->telefone;
-        $code = substr($tel, -4);
+        $code = substr(uniqid(rand()), 0, 4);
 
         $remetente = User::findOrFail(Auth::user()->id);
-        $destinatario = User::findOrFail($request->destinatario);
+        $destinatario = User::where('email', '=', $request->destinatario)->firstOrFail();
 
         $apiKey = 'AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs';
 
@@ -65,7 +64,7 @@ class PedidoController extends Controller
             'preco' => $preco,
             'peso' => $request->peso,
             'tamanho' => $request->tamanho,
-            'id_destinatario' => $request->destinatario,
+            'id_destinatario' => $destinatario->id,
             'id_remetente' => Auth::user()->id,
         ]);
 

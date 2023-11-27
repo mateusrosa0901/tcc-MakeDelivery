@@ -40,7 +40,7 @@
 
 
             <div class="container">
-                <form class="form-cadastro create" action="{{ route('user.search') }}" method="post">
+                <form class="form-cadastro create" action="{{ route('pedido.store') }}" method="post">
                     @csrf
 
                     <div class="textfield">

@@ -49,7 +49,7 @@ header span:hover {
 
 .left-user {
     width: 20%;
-    box-shadow: inset  0 0 1em rgb(59, 57, 45);
+    box-shadow: 0 0 1em rgb(59, 57, 45);
     
 }
 
@@ -111,10 +111,61 @@ aside a:hover {
     width: 100%;
 }
 
+.top {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .btn {
     color: #fff;
     border-radius: 5px;
     background-color: #834A8D;
     padding: 8px;
     text-decoration: none;
+}
+
+.envios {
+    height: 80%;
+    width: 100%;
+}
+
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 0 30px 8px #2f86d6;
+}
+
+th {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #bec0c562;
+}
+
+th img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+th p {
+    font-weight: 400;
+    color: #acacac;
+}
+
+tr {
+    background-color: #f1f3f7;
+}
+
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+td {
+    font-weight: 500;
+    padding: 20px;
+    border: 1px solid #bec0c562;
 }

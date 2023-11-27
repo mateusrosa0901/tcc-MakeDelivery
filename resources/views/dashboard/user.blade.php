@@ -38,11 +38,36 @@
 
 
             <div class="container">
-                <a class="btn" href="{{ route('pedido.create') }}">Novo Pedido</a>
+                <div class="top">
+                   <a class="btn" href="{{ route('pedido.create') }}">Novo Pedido</a> 
+                </div>
+                
+                <div class="envios">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Entregador</th>
+                                <th>Status</th>
+                                <th>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pedidos as $pedido)
+                                <tr>
+                                    <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
 
-                @foreach ($pedidos as $pedido)
-                    <p>{{$pedido->id}}</p>
-                @endforeach
+                                    <td>{{ $pedido->motoboy_nome }}</td>
+
+                                    <td>{{ $pedido->status }}</td>
+
+                                    <td>R$ {{ $pedido->preco }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                
             </div>
         </div>
     </div>
