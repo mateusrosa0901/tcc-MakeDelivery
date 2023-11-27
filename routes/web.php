@@ -30,6 +30,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/user/logout', 'logout')->name('user.logout');
     Route::get('/user/edit', 'edit')->middleware('user.auth')->name('user.edit');
     Route::put('/user', 'update')->name('user.update');
+    Route::post('user/search', 'search')->name('user.search');
 });
 
 Route::controller(MotoboyController::class)->group(function () {

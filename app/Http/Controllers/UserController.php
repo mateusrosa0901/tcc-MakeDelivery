@@ -100,6 +100,15 @@ class UserController extends Controller
         return redirect()->route('user.edit');
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->destinatario;
+
+        $result = User::where('email', 'LIKE', '%'.$search.'%')->limit(5)->get();
+
+        return response()->json($result);
+    }
+
     /**
      * Remove the specified resource from storage.
      */

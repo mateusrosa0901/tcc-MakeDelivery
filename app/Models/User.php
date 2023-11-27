@@ -25,4 +25,8 @@ class User extends Authenticatable
         'uf',
         'numero',
     ];
+
+    protected $hidden = [
+        'password',
+    ];
 }

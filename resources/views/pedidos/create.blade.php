@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/users/create.css">
+    <link rel="stylesheet" href="/assets/css/pedidos/create.css">
 @endsection
 
 @section('content')
@@ -38,18 +40,38 @@
 
 
             <div class="container">
-                <form action="{{ route('pedido.store') }}" method="post">
+                <form class="form-cadastro create" action="{{ route('user.search') }}" method="post">
                     @csrf
 
-                    <input type="text" name="desc" id="iddesc" required placeholder="Descrição do pedido">
-                    <input type="text" name="peso" id="idpeso" required placeholder="Peso do pedido">
-                    <input type="text" name="tamanho" id="idtamanho" required placeholder="Tamanho do pedido">
-                    <input type="text" name="destinatario" id="iddestinatario" placeholder="destinatario">
+                    <div class="textfield">
+                        <label for="iddesc">Descrição da ecomenda:</label>
+                        <input type="text" name="desc" id="iddesc" required placeholder="Furadeira">
+                    </div>
+                    <div class="textfield">
+                        <label for="idpeso">Peso:</label>
+                        <input type="text" name="peso" id="idpeso" required placeholder="2.00 Kg">
+                    </div>
+                    <div class="textfield">
+                        <label for="idtamanho">Tamanho:</label>
+                        <input type="text" name="tamanho" id="idtamanho" required placeholder="21x07x19">
+                    </div>
+                    <div class="textfield">
+                        <label for="iddestinatario">Email do destinatario:</label>
+                        <input type="text" name="destinatario" id="iddestinatario" placeholder="destino@gmail">
+                    </div>
 
-                    <input type="submit" value="Nova Entrega">
+                    <input class="sub-buttom" type="submit" value="Nova Entrega">
                 </form>
             </div>
         </div>
     </div>
+
+    <script>
+        $( function() {
+            $( "#iddestinatario" ).autocomplete({
+                source: "{{ route('user.search') }}",
+            })
+        })
+    </script>
 
 @endsection
