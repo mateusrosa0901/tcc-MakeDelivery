@@ -43,9 +43,14 @@
                         <input class="sub-bt" type="submit" value="Novo Pedido"> 
                     </form>
                 </div>
+
+                <div class="choice">
+                    <button onclick="enviados()">enviados</button>
+                    <button onclick="recebidos()">recebidos</button>
+                </div>
                 
-                <div class="envios">
-                    <div class="tabela">
+                <div class="pedidos">
+                    <div id="enviados" class="tabela">
                         <table>
                             <thead>
                                 <tr>
@@ -69,10 +74,51 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div id="recebidos" class="tabela d-none">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Entregador</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($pedidos as $pedido)
+                                    <tr onclick="location.href='{{ route('user.edit') }}'">
+                                        <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
+                                        @if ( $pedido->motoboy_nome )
+                                            <td>{{ $pedido->motoboy_nome }}</td>
+                                        @endif
+                                        <td>{{ $pedido->status }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
             </div>
         </div>
     </div>
+
+    <script>
+        function enviados(){
+            id = document.getElementById("enviados");
+            id.style.display = 'block';
+
+            id = document.getElementById("recebidos");
+            id.style.display = 'none'
+        }
+
+        function recebidos(){
+            id = document.getElementById("recebidos");
+            id.style.display = 'block';
+
+            id = document.getElementById("enviados");
+            id.style.display = 'none'
+        }
+    </script>
 
 @endsection

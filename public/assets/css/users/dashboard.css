@@ -134,7 +134,7 @@ aside a:hover {
     cursor: pointer;
 }
 
-.envios {
+.pedidos {
     height: 80%;
     width: 100%;
     display: flex;
@@ -215,4 +215,8 @@ tr:nth-child(even):hover {
 td {
     font-weight: 500;
     padding: 20px;
+}
+
+.d-none {
+    display: none;
 }
