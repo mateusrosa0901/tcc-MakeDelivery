@@ -27,6 +27,8 @@ class UserDashboardController extends Controller
         ->orderBy('pedidos.id', 'DESC')
         ->get();
         
+        //dd($pedidos);
+
         return view('dashboard.user', ['title' => $title, 'pedidos' => $pedidos]);
     }
 }

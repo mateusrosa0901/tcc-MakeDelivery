@@ -118,30 +118,65 @@ aside a:hover {
     justify-content: center;
 }
 
-.btn {
-    color: #fff;
-    border-radius: 5px;
-    background-color: #834A8D;
-    padding: 8px;
-    text-decoration: none;
+.sub-bt {
+    width: 100%;
+    color: #F2F2F2;
+    font-weight: 700;
+    padding: 16px 0px;
+    border-radius: 8px;
+    outline: none;
+    background: #a75db4;
+    letter-spacing: 2px;
+    font-size: 14pt;
+}
+
+.sub-bt:hover {
+    cursor: pointer;
 }
 
 .envios {
     height: 80%;
     width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
 }
 
+.tabela {
+    overflow-y: scroll;
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.tabela::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+}
+
+.tabela::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.356);        /* color of the tracking area */
+    border-radius: 0px 10px 10px 0px;       /* roundness of the scroll thumb */
+    box-shadow: inset 0.5em 0.5em 1em rgba(51, 51, 51, 0.3);
+}
+
+.tabela::-webkit-scrollbar-thumb {
+    background-color: #a764d0;    /* color of the scroll thumb */
+    border-radius: 10px;       /* roundness of the scroll thumb */
+}
 
 table {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
-    box-shadow: 0 0 30px 8px #2f86d6;
 }
 
 th {
-    background-color: #fff;
+    cursor: default;
+    background-color: #9b9a9a;
     padding: 20px;
-    border: 1px solid #bec0c562;
+    color: black;
+    position: sticky;
+    top: 0;
 }
 
 th img {
@@ -157,15 +192,26 @@ th p {
 }
 
 tr {
+    text-align: center;
     background-color: #f1f3f7;
+}
+
+tr:hover {
+    cursor: pointer;
+    background-color:#834A8D;
+    color: #f1f3f7;    
 }
 
 tr:nth-child(even) {
     background-color: #fff;
 }
 
+tr:nth-child(even):hover {
+    background-color: #834A8D;
+    color: #f1f3f7;
+}
+
 td {
     font-weight: 500;
     padding: 20px;
-    border: 1px solid #bec0c562;
 }

@@ -39,33 +39,36 @@
 
             <div class="container">
                 <div class="top">
-                   <a class="btn" href="{{ route('pedido.create') }}">Novo Pedido</a> 
+                    <form action="{{ route('pedido.create') }}" method="get">
+                        <input class="sub-bt" type="submit" value="Novo Pedido"> 
+                    </form>
                 </div>
                 
                 <div class="envios">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Entregador</th>
-                                <th>Status</th>
-                                <th>Preço</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pedidos as $pedido)
+                    <div class="tabela">
+                        <table>
+                            <thead>
                                 <tr>
-                                    <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
-
-                                    <td>{{ $pedido->motoboy_nome }}</td>
-
-                                    <td>{{ $pedido->status }}</td>
-
-                                    <td>R$ {{ $pedido->preco }}</td>
+                                    <th>Data</th>
+                                    <th>Entregador</th>
+                                    <th>Status</th>
+                                    <th>Preço</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($pedidos as $pedido)
+                                    <tr onclick="location.href='{{ route('user.edit') }}'">
+                                        <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
+                                        @if ( $pedido->motoboy_nome )
+                                            <td>{{ $pedido->motoboy_nome }}</td>
+                                        @endif
+                                        <td>{{ $pedido->status }}</td>
+                                        <td>R$ {{ $pedido->preco }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
             </div>
