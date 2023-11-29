@@ -48,6 +48,16 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->hasFile('perfil')) {
+            $filename = pathinfo($request->file('perfil')->getClientOriginalName(), PATHINFO_FILENAME);
+
+            $extension = $request->file('perfil')->getClientOriginalExtension();
+
+            $fileNameToStore= $filename.'_'.uniqid().'.'.$extension;
+
+            $path = $request->file('perfil')->move(public_path('/assets/profile/users'), $fileNameToStore);
+        }
+
         $cep_url = urlencode($request->cep);
         $url = "https://viacep.com.br/ws/$cep_url/json/";
 
@@ -59,6 +69,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'telefone' => $request->tel,
             'cpf' => $request->cpf,
+            'perfil_img' => $fileNameToStore,
             'cep' => $request->cep,
             'logradouro' => $data['logradouro'],
             'bairro' => $data['bairro'],

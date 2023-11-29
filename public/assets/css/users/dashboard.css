@@ -134,6 +134,18 @@ aside a:hover {
     cursor: pointer;
 }
 
+.sw-bt-box {
+    margin-bottom: 10px;
+}
+
+.sw-bt button {
+    background: transparent;
+    font-size: 18px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
 .pedidos {
     height: 80%;
     width: 100%;
@@ -219,4 +231,12 @@ td {
 
 .d-none {
     display: none;
+}
+
+.bb-none {
+    border-bottom: none;
+}
+
+.bb-roxa {
+    border-bottom: solid 2px #834A8D;
 }

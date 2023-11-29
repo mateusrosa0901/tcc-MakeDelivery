@@ -13,7 +13,7 @@ class UserDashboardController extends Controller
     {
         $title = 'User - Dashboard';
 
-        $pedidos = Pedido::join('users', 'users.id', '=', 'pedidos.id_destinatario')
+        $enviados = Pedido::join('users', 'users.id', '=', 'pedidos.id_destinatario')
         ->join('motoboys', 'motoboys.id', '=', 'pedidos.id_motoboy')
         ->select(
             'pedidos.*',
@@ -22,13 +22,27 @@ class UserDashboardController extends Controller
             'users.telefone AS destinatario_tel',
             'users.cep AS destinatario_cep',
             'motoboys.nome AS motoboy_nome',
-            )
+        )
         ->where('id_remetente', '=', Auth::user()->id)
         ->orderBy('pedidos.id', 'DESC')
         ->get();
-        
-        //dd($pedidos);
 
-        return view('dashboard.user', ['title' => $title, 'pedidos' => $pedidos]);
+        $recebidos = Pedido::join('users', 'users.id', '=', 'pedidos.id_remetente')
+        ->join('motoboys', 'motoboys.id', '=', 'pedidos.id_motoboy')
+        ->select(
+            'pedidos.*',
+            'users.nome AS remetente_nome',
+            'users.email AS remetente_email',
+            'users.telefone AS remetente_tel',
+            'users.cep AS remetente_cep',
+            'motoboys.nome AS motoboy_nome',
+        )
+        ->where('id_destinatario', '=', Auth::user()->id)
+        ->orderBy('pedidos.id', 'DESC')
+        ->get();
+        
+        //dd($enviados);
+
+        return view('dashboard.user', ['title' => $title, 'enviados' => $enviados, 'recebidos' => $recebidos]);
     }
 }

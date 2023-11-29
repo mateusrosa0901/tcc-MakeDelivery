@@ -16,7 +16,7 @@
 
         <div class="right-cadastro">
             <div class="card-cadastro">
-                <form class="form-cadastro" action="{{ Route('user.store') }}" method="POST">
+                <form class="form-cadastro" action="{{ Route('user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="textfield">
@@ -53,6 +53,11 @@
                             <label for="idnumero">N°</label>
                             <input type="text" name="numero" id="idnumero" placeholder="00A">
                         </div>
+                    </div>
+
+                    <div class="textfield">
+                        <label for="idperfil">Foto de perfil:</label>
+                        <input type="file" name="perfil" id="idperfil">
                     </div>
 
                     <input class="sub-buttom" type="submit" value="CADASTRAR">

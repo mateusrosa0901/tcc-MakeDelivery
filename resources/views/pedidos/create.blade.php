@@ -25,7 +25,7 @@
             <div class="left-user">
                 <div class="user">
                     <div class="user-img">
-                        <img src="/assets/img/users/Foto_Perfil.jpg" alt="">
+                        <img src="/assets/profile/users/{{ Auth::user()->perfil_img }}" alt="">
                     </div>
 
                     <span>{{ Auth::user()->nome }}</span>
@@ -44,7 +44,7 @@
                     @csrf
 
                     <div class="textfield">
-                        <label for="iddesc">Descrição da ecomenda:</label>
+                        <label for="iddesc">Descrição da encomenda:</label>
                         <input type="text" name="desc" id="iddesc" required placeholder="Furadeira">
                     </div>
                     <div class="textfield">

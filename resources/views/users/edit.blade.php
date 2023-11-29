@@ -22,7 +22,7 @@
             <div class="left-user">
                 <div class="user">
                     <div class="user-img">
-                        <img src="/assets/img/users/Foto_Perfil.jpg" alt="">
+                        <img src="/assets/profile/users/{{ Auth::user()->perfil_img }}" alt="">
                     </div>
 
                     <span>{{ Auth::user()->nome }}</span>

@@ -23,7 +23,7 @@
             <div class="left-user">
                 <div class="user">
                     <div class="user-img">
-                        <img src="/assets/img/users/Foto_Perfil.jpg" alt="">
+                        <img src="/assets/profile/users/{{ Auth::user()->perfil_img }}" alt="">
                     </div>
 
                     <span>{{ Auth::user()->nome }}</span>
@@ -44,9 +44,11 @@
                     </form>
                 </div>
 
-                <div class="choice">
-                    <button onclick="enviados()">enviados</button>
-                    <button onclick="recebidos()">recebidos</button>
+                <div class="sw-bt-box">
+                    <div class="sw-bt">
+                        <button  class="bb-roxa" onclick="enviados()">ENVIADOS</button>
+                        <button class="bb-none" onclick="recebidos()">RECEBIDOS</button>
+                    </div>
                 </div>
                 
                 <div class="pedidos">
@@ -61,14 +63,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pedidos as $pedido)
+                                @foreach ($enviados as $enviado)
                                     <tr onclick="location.href='{{ route('user.edit') }}'">
-                                        <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
-                                        @if ( $pedido->motoboy_nome )
-                                            <td>{{ $pedido->motoboy_nome }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($enviado->created_at)) }}</td>
+                                        @if ( $enviado->motoboy_nome )
+                                            <td>{{ $enviado->motoboy_nome }}</td>
                                         @endif
-                                        <td>{{ $pedido->status }}</td>
-                                        <td>R$ {{ $pedido->preco }}</td>
+                                        <td>{{ $enviado->status }}</td>
+                                        <td>R$ {{ $enviado->preco }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -81,17 +83,19 @@
                                 <tr>
                                     <th>Data</th>
                                     <th>Entregador</th>
+                                    <th>Remetente</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($pedidos as $pedido)
+                                @foreach ($recebidos as $recebido)
                                     <tr onclick="location.href='{{ route('user.edit') }}'">
-                                        <td>{{ date('d/m/Y', strtotime($pedido->created_at)) }}</td>
-                                        @if ( $pedido->motoboy_nome )
-                                            <td>{{ $pedido->motoboy_nome }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($recebido->created_at)) }}</td>
+                                        @if ( $recebido->motoboy_nome )
+                                            <td>{{ $recebido->motoboy_nome }}</td>
                                         @endif
-                                        <td>{{ $pedido->status }}</td>
+                                        <td>{{ $recebido->remetente_nome }}</td>
+                                        <td>{{ $recebido->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -12,7 +12,10 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    protected $attributes = ['status' => 'ativo'];
+    protected $attributes = [
+        'status' => 'ativo',
+        'perfil_img' => 'default.jpg',
+    ];
 
     protected $fillable = [
         'nome',
@@ -20,6 +23,7 @@ class User extends Authenticatable
         'password',
         'telefone',
         'cpf',
+        'perfil_img',
         'cep',
         'logradouro',
         'bairro',
