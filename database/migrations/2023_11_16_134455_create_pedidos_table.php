@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('distancia');
             $table->string('tempo');
             $table->decimal('preco', 8, 2);
+            $table->decimal('motoboy_preco', 8, 2);
             $table->string('peso');
             $table->string('tamanho');
             $table->string('status');
