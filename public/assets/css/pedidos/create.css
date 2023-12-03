@@ -1,3 +1,9 @@
 .create {
     width: 40%;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

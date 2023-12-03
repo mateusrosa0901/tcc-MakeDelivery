@@ -56,6 +56,8 @@ class UserController extends Controller
             $fileNameToStore= $filename.'_'.uniqid().'.'.$extension;
 
             $path = $request->file('perfil')->move(public_path('/assets/profile/users'), $fileNameToStore);
+        } else {
+            $fileNameToStore = 'default.jpg';
         }
 
         $cep_url = urlencode($request->cep);
@@ -127,7 +129,8 @@ class UserController extends Controller
     {
         $search = $request->destinatario;
 
-        $result = User::where('email', 'LIKE', '%'.$search.'%')->limit(5)->get();
+        $result = User::select('users.email AS label')->where('email', 'LIKE', '%'.$search.'%')->limit(5)->get();
+
 
         return response()->json($result);
     }

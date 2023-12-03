@@ -50,9 +50,9 @@ class PedidoController extends Controller
         $distancia = $data['rows'][0]['elements'][0]['distance']['value'] / 1000;
         $tempo = $data['rows'][0]['elements'][0]['duration']['value'] / 60;
 
-        $preco_peso = $request->peso * 0.50;
-        $preco_distancia = $distancia * 0.50;
-        $preco_tempo = $tempo * 0.30;
+        $preco_peso = $request->peso * 0.15;
+        $preco_distancia = $distancia * 1.50;
+        $preco_tempo = $tempo * 0.15;
 
         $preco = $preco_peso + $preco_distancia + $preco_tempo;
 

@@ -50,7 +50,7 @@ header span:hover {
 .left-user {
     width: 20%;
     box-shadow: 0 0 1em rgb(59, 57, 45);
-    
+
 }
 
 .user {
@@ -84,7 +84,7 @@ header span:hover {
 aside {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 aside a {
@@ -136,9 +136,16 @@ aside a:hover {
 
 .sw-bt-box {
     margin-bottom: 10px;
+    width: 25%;
+}
+
+.sw-bt {
+    display: flex;
+    justify-content: space-around;
 }
 
 .sw-bt button {
+    cursor: pointer;
     background: transparent;
     font-size: 18px;
     border-top: none;
@@ -212,7 +219,7 @@ tr {
 tr:hover {
     cursor: pointer;
     background-color:#834A8D;
-    color: #f1f3f7;    
+    color: #f1f3f7;
 }
 
 tr:nth-child(even) {
@@ -235,8 +242,4 @@ td {
 
 .bb-none {
     border-bottom: none;
-}
-
-.bb-roxa {
-    border-bottom: solid 2px #834A8D;
 }

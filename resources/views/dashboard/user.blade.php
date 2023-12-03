@@ -40,17 +40,18 @@
             <div class="container">
                 <div class="top">
                     <form action="{{ route('pedido.create') }}" method="get">
-                        <input class="sub-bt" type="submit" value="Novo Pedido"> 
+                        <input class="sub-bt" type="submit" value="Novo Pedido">
                     </form>
                 </div>
 
                 <div class="sw-bt-box">
                     <div class="sw-bt">
-                        <button  class="bb-roxa" onclick="enviados()">ENVIADOS</button>
+                        <button  class="bb-none" onclick="enviados()">ENVIADOS</button>
+                        <p>|</p>
                         <button class="bb-none" onclick="recebidos()">RECEBIDOS</button>
                     </div>
                 </div>
-                
+
                 <div class="pedidos">
                     <div id="enviados" class="tabela">
                         <table>
@@ -64,7 +65,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($enviados as $enviado)
-                                    <tr onclick="location.href='{{ route('user.edit') }}'">
+                                    <tr onclick="location.href='/user/edit'">
                                         <td>{{ date('d/m/Y', strtotime($enviado->created_at)) }}</td>
                                         @if ( $enviado->motoboy_nome )
                                             <td>{{ $enviado->motoboy_nome }}</td>
@@ -89,7 +90,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($recebidos as $recebido)
-                                    <tr onclick="location.href='{{ route('user.edit') }}'">
+                                    <tr onclick="location.href='/user/edit'">
                                         <td>{{ date('d/m/Y', strtotime($recebido->created_at)) }}</td>
                                         @if ( $recebido->motoboy_nome )
                                             <td>{{ $recebido->motoboy_nome }}</td>
@@ -102,7 +103,7 @@
                         </table>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>

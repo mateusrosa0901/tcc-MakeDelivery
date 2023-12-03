@@ -62,14 +62,47 @@
 
                     <input class="sub-buttom" type="submit" value="Nova Entrega">
                 </form>
+
+                <iframe
+                    width="500"
+                    height="450"
+                    style="border:2"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs&q={{urlencode(Auth::user()->logradouro.','. Auth::user()->numero.','. Auth::user()->bairro.','. Auth::user()->cidade.','. Auth::user()->uf);}}">
+                </iframe>
             </div>
         </div>
     </div>
 
     <script>
+        //aData = {}
         $( function() {
             $( "#iddestinatario" ).autocomplete({
-                source: "{{ route('user.search') }}",
+                source: function(request, response) {
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "/user/search",
+                        type: 'post',
+                        dataType: 'json',
+
+                        success: function(data) {
+                            //console.log(data);
+
+                            /*aData = $.map(data, function(value, key) {
+                                return {
+                                    label: value.email,
+                                };
+                            });*/
+
+                            var results = $.ui.autocomplete.filter(data, request.term);
+                            response(results);
+                        }
+                    })
+                }
             })
         })
     </script>
