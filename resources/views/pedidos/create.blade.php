@@ -70,7 +70,7 @@
                     loading="lazy"
                     allowfullscreen
                     referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs&q={{urlencode(Auth::user()->logradouro.','. Auth::user()->numero.','. Auth::user()->bairro.','. Auth::user()->cidade.','. Auth::user()->uf);}}">
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs&q={{urlencode(Auth::user()->logradouro.','. Auth::user()->numero.','. Auth::user()->bairro.','. Auth::user()->cidade.','. Auth::user()->uf)}}">
                 </iframe>
             </div>
         </div>

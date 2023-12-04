@@ -55,6 +55,7 @@ class PedidoController extends Controller
         $preco_tempo = $tempo * 0.15;
 
         $preco = $preco_peso + $preco_distancia + $preco_tempo;
+        $motoboy_preco = $preco - ($preco / 100 * 40);
 
         Pedido::create([
             'code' => $code,
@@ -62,6 +63,7 @@ class PedidoController extends Controller
             'distancia' => $distancia,
             'tempo' => $tempo,
             'preco' => $preco,
+            'motoboy_preco' => $motoboy_preco,
             'peso' => $request->peso,
             'tamanho' => $request->tamanho,
             'id_destinatario' => $destinatario->id,

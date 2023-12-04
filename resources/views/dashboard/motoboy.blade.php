@@ -17,7 +17,26 @@
         </header>
 
         <div class="content">
-            
+            <div class="pedidos">
+                @foreach ($pedidos as $pedido)
+                    <div class="pedido">
+                        <div class="desc">
+                            {{$pedido->desc}}
+                        </div>
+                        <div class="preco">
+                            R$ {{number_format($pedido->motoboy_preco, 2, ',', '')}}
+                        </div>
+                        <div class="distancia">
+                            Distancia: <span>{{number_format($pedido->distancia, 2, '.', '')}} Km</span>
+                        </div>
+                        <div class="btn">
+                            <div class="btn-aceitar">
+                                Aceitar Entrega
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 

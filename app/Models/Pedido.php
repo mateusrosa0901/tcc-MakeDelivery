@@ -12,7 +12,7 @@ class Pedido extends Model
     protected $table = 'pedidos';
 
     protected $attributes = [
-        'status' => 'Confirmando',
+        'status' => 'Procurando entregador',
         'id_motoboy' => 1,
     ];
 
@@ -22,6 +22,7 @@ class Pedido extends Model
         'distancia',
         'tempo',
         'preco',
+        'motoboy_preco',
         'peso',
         'tamanho',
         'status',
