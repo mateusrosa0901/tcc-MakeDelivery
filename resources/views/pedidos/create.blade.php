@@ -116,7 +116,7 @@
             const { directionsRenderer } = google.maps.importLibrary("DirectionsRenderer") as google.maps.DirectionsRenderer;
             const position = { lat: -15.344, lng: 200.031 };
 
-            map = new google.maps.Map(document.getElementById("map"), {
+            map = new Map(document.getElementById("map"), {
                 zoom: 4,
                 center: position,
                 mapId: "terrain", 
