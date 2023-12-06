@@ -143,9 +143,28 @@ class UserController extends Controller
         //
     }
 
-    public function logout() {
+    public function logout() 
+    {
         Auth::logout();
 
         return redirect()->route('user.login');
+    }
+    public function GetAdrr(Request $request)
+    {
+        $search = $request->destinatario;
+
+        $result = User::select(
+            'users.email',
+            'users.logradouro AS rua',
+            'users.bairro',
+            'users.cidade',
+            'users.uf',
+            'users.numero',
+            'users.cep',
+        )
+        ->where('email', '=', $search)
+        ->get();
+
+        return response()->json($result);
     }
 }
