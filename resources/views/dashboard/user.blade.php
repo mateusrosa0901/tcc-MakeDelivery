@@ -65,7 +65,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($enviados as $enviado)
-                                    <tr onclick="location.href='/user/edit'">
+                                    <tr onclick="location.href='{!! route('pedido.enviado', $enviado->id) !!}'">
                                         <td>{{ date('d/m/Y', strtotime($enviado->created_at)) }}</td>
                                         @if ( $enviado->motoboy_nome )
                                             <td>{{ $enviado->motoboy_nome }}</td>
@@ -90,7 +90,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($recebidos as $recebido)
-                                    <tr onclick="location.href='/user/edit'">
+                                    <tr onclick="location.href='{!! route('pedido.enviado', $recebido->id) !!}'">
                                         <td>{{ date('d/m/Y', strtotime($recebido->created_at)) }}</td>
                                         @if ( $recebido->motoboy_nome )
                                             <td>{{ $recebido->motoboy_nome }}</td>

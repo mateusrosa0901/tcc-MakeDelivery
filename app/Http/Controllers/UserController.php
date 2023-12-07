@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+use function Laravel\Prompts\search;
 
 class UserController extends Controller
 {
@@ -163,6 +164,7 @@ class UserController extends Controller
             'users.cep',
         )
         ->where('email', '=', $search)
+        ->limit(1)
         ->get();
 
         return response()->json($result);

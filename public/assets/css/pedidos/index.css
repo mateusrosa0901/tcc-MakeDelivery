@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-map {
+    height: 70%;
+    width: 45%;
+    padding: 10px;
+    background-color: #834A8D;
+    box-shadow: 0px 10px 40px #0000009d;
+    border-radius: 10px;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}

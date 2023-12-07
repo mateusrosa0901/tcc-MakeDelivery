@@ -10,12 +10,33 @@ use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function IndexEnviado($id)
     {
-        //
+        $pedido = Pedido::join('users', 'users.id', '=', 'pedidos.id_destinatario')
+        ->join('motoboys', 'motoboys.id', '=', 'pedidos.id_motoboy')
+        ->select(
+            'pedidos.*',
+            'users.nome AS destinatario_nome',
+            'users.email AS destinatario_email',
+            'users.telefone AS destinatario_tel',
+            'users.cep AS destinatario_cep',
+            'users.numero AS destinatario_numero',
+            'users.logradouro AS destinatario_rua',
+            'users.bairro AS destinatario_bairro',
+            'users.cidade AS destinatario_cidade',
+            'users.uf AS destinatario_uf',
+            'motoboys.nome AS motoboy_nome',
+            'motoboys.telefone AS motoboy_tel',
+            'motoboys.placa AS motoboy_placa',
+        )
+        ->where('pedidos.id', '=', $id)
+        ->orderBy('pedidos.id', 'DESC')
+        ->first();
+        
+        $title = 'teste';
+        $destino = "$pedido->destinatario_rua, $pedido->destinatario_numero - $pedido->destinatario_bairro, $pedido->destinatario_cidade - $pedido->destinatario_uf, $pedido->destinatario_cep";
+
+        return view('pedidos.IndexEnviado', ['title' => $title, 'pedido' => $pedido, 'destino' => $destino]);
     }
 
     /**

@@ -142,7 +142,7 @@
             directionsService
                 .route({
                 origin: '{!! Auth::user()->logradouro !!}, {!! Auth::user()->numero !!} - {!! Auth::user()->bairro !!}, {!! Auth::user()->cidade !!} - {!! Auth::user()->uf !!}, {!! Auth::user()->cep !!}',
-                destination: data[1]["cidade"],
+                destination: 'Coronel Fabriciano',
                 travelMode: google.maps.TravelMode['DRIVING'],
                 })
                 .then((response) => {
