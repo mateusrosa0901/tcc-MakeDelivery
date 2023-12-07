@@ -30,7 +30,7 @@
                 </div>
 
                 <aside>
-                    <a href="#">Meus Pedidos</a>
+                    <a href="#" class="c-roxo">Meus Pedidos</a>
                     <a href="{{ route('user.edit') }}">Conta</a>
                     <a href="{{ route('user.logout') }}">Sair</a>
                 </aside>

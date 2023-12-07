@@ -41,19 +41,25 @@
 
             <div class="container">
                 <div class="info">
-                    <h2>Pedido</h2>
-                    <p>Código: <span>{{$pedido->code}}</span></p>
-                    <p>Status: <span>{{$pedido->status}}</span></p>
+                    <div class="pedido">
+                        <h2>Pedido</h2>
+                        <p>Código: <span>{{$pedido->code}}</span></p>
+                        <p>Status: <span>{{$pedido->status}}</span></p>
+                    </div>
 
-                    <h2>Entregador</h2>
-                    <p>Nome: <span>{{$pedido->motoboy_nome}}</span></p>
-                    <p>Placa: <span>{{$pedido->motoboy_placa}}</span></p>
-                    <p>Telefone: <span>{{$pedido->motoboy_tel}}</span></p>
+                    <div class="entregador">
+                        <h2>Entregador</h2>
+                        <p>Nome: <span>{{$pedido->motoboy_nome}}</span></p>
+                        <p>Placa: <span>{{$pedido->motoboy_placa}}</span></p>
+                        <p>Telefone: <span><a href="tel:+55 {{$pedido->motoboy_tel}}">{{$pedido->motoboy_tel}}</a></span></p>
+                    </div>
 
-                    <h2>Destinatário</h2>
-                    <p>Nome: <span>{{$pedido->destinatario_nome}}</span></p>
-                    <p>Telefone: <span><a href="tel:+55 {{$pedido->destinatario_tel}}">{{$pedido->destinatario_tel}}</a></span></p> 
-                    <p>Email: <span><a href="mailto:{{$pedido->destinatario_email}}">{{$pedido->destinatario_email}}</a></span></p> 
+                    <div class="destinatario">
+                        <h2>Destinatário</h2>
+                        <p>Nome: <span>{{$pedido->destinatario_nome}}</span></p>
+                        <p>Telefone: <span><a href="tel:+55 {{$pedido->destinatario_tel}}">{{$pedido->destinatario_tel}}</a></span></p>
+                        <p>Email: <span><a href="mailto:{{$pedido->destinatario_email}}">{{$pedido->destinatario_email}}</a></span></p>
+                    </div>
                 </div>
 
                 <div class="bg-map">
@@ -75,6 +81,7 @@
             zoom: 4,
             center: { lat: -15.793889, lng: -47.882778 },
             draggable: true,
+            disableDefaultUI: true,
             });
         
             directionsRenderer.setMap(map);
