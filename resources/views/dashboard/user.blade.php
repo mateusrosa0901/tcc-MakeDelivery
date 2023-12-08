@@ -90,7 +90,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($recebidos as $recebido)
-                                    <tr onclick="location.href='{!! route('pedido.enviado', $recebido->id) !!}'">
+                                    <tr onclick="location.href='{!! route('pedido.recebido', $recebido->id) !!}'">
                                         <td>{{ date('d/m/Y', strtotime($recebido->created_at)) }}</td>
                                         @if ( $recebido->motoboy_nome )
                                             <td>{{ $recebido->motoboy_nome }}</td>

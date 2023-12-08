@@ -60,7 +60,7 @@ class MotoboyController extends Controller
             'cpf' => $request->cpf,
             'placa' => $request->placa,
         ]);
-        
+
         try {
             $motoboy->save();
 

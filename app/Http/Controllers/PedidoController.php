@@ -30,13 +30,40 @@ class PedidoController extends Controller
             'motoboys.placa AS motoboy_placa',
         )
         ->where('pedidos.id', '=', $id)
-        ->orderBy('pedidos.id', 'DESC')
         ->first();
-        
+
         $title = 'teste';
         $destino = "$pedido->destinatario_rua, $pedido->destinatario_numero - $pedido->destinatario_bairro, $pedido->destinatario_cidade - $pedido->destinatario_uf, $pedido->destinatario_cep";
 
         return view('pedidos.IndexEnviado', ['title' => $title, 'pedido' => $pedido, 'destino' => $destino]);
+    }
+
+    public function IndexRecebido($id)
+    {
+        $pedido = Pedido::join('users', 'users.id', '=', 'pedidos.id_remetente')
+        ->join('motoboys', 'motoboys.id', '=', 'pedidos.id_motoboy')
+        ->select(
+            'pedidos.*',
+            'users.nome AS remetente_nome',
+            'users.email AS remetente_email',
+            'users.telefone AS remetente_tel',
+            'users.cep AS remetente_cep',
+            'users.numero AS remetente_numero',
+            'users.logradouro AS remetente_rua',
+            'users.bairro AS remetente_bairro',
+            'users.cidade AS remetente_cidade',
+            'users.uf AS remetente_uf',
+            'motoboys.nome AS motoboy_nome',
+            'motoboys.telefone AS motoboy_tel',
+            'motoboys.placa AS motoboy_placa',
+        )
+        ->where('pedidos.id', '=', $id)
+        ->first();
+
+        $title = 'teste';
+        $origem = "$pedido->remetente_rua, $pedido->remetente_numero - $pedido->remetente_bairro, $pedido->remetente_cidade - $pedido->remetente_uf, $pedido->remetente_cep";
+
+        return view('pedidos.IndexRecebido', ['title' => $title, 'pedido' => $pedido, 'origem' => $origem]);
     }
 
     /**
@@ -94,35 +121,48 @@ class PedidoController extends Controller
         return redirect()->route('user.dashboard');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Pedido $pedido)
+    public function aceitar($id)
     {
-        //
-    }
+        Pedido::where('id', $id)
+        ->update([
+            'id_motoboy' => Auth::guard('motoboys')->user()->id,
+            'status' => 'Em rota'
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pedido $pedido)
-    {
-        //
-    }
+        $pedido = Pedido::where('id', $id)->first();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Pedido $pedido)
-    {
-        //
-    }
+        $remetente = Pedido::join('users', 'users.id', '=', 'pedidos.id_remetente')
+        ->select(
+            'users.nome AS remetente_nome',
+            'users.email AS remetente_email',
+            'users.telefone AS remetente_tel',
+            'users.cep AS remetente_cep',
+            'users.numero AS remetente_numero',
+            'users.logradouro AS remetente_rua',
+            'users.bairro AS remetente_bairro',
+            'users.cidade AS remetente_cidade',
+            'users.uf AS remetente_uf',
+        )
+        ->where('pedidos.id', '=', $id)
+        ->first();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Pedido $pedido)
-    {
-        //
+        $origem = "$remetente->remetente_rua, $remetente->remetente_numero - $remetente->remetente_bairro, $remetente->remetente_cidade - $remetente->remetente_uf, $remetente->remetente_cep";
+
+        $destinatario = Pedido::join('users', 'users.id', '=', 'pedidos.id_destinatario')
+        ->select(
+            'users.nome AS destinatario_nome',
+            'users.email AS destinatario_email',
+            'users.telefone AS destinatario_tel',
+            'users.cep AS destinatario_cep',
+            'users.numero AS destinatario_numero',
+            'users.logradouro AS destinatario_rua',
+            'users.bairro AS destinatario_bairro',
+            'users.cidade AS destinatario_cidade',
+            'users.uf AS destinatario_uf',
+        )
+        ->where('pedidos.id', '=', $id)
+        ->first();
+
+        $destino = "$destinatario->destinatario_rua, $destinatario->destinatario_numero - $destinatario->destinatario_bairro, $destinatario->destinatario_cidade - $destinatario->destinatario_uf, $destinatario->destinatario_cep";
     }
 }

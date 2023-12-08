@@ -30,7 +30,7 @@
                             Distancia: <span>{{number_format($pedido->distancia, 2, '.', '')}} Km</span>
                         </div>
                         <div class="btn">
-                            <div class="btn-aceitar">
+                            <div class="btn-aceitar" onclick="location.href='{!! route('pedido.aceitar', $pedido->id) !!}'">
                                 Aceitar Entrega
                             </div>
                         </div>

@@ -12,15 +12,7 @@ class MotoboyDashboardController extends Controller
     {
         $title = 'Motoboy - Dashboard';
 
-        $pedidos = Pedido::join('users', 'users.id', '=', 'pedidos.id_destinatario')
-        ->select(
-            'pedidos.*',
-            'users.nome AS destinatario_nome',
-            'users.email AS destinatario_email',
-            'users.telefone AS destinatario_tel',
-            'users.cep AS destinatario_cep',
-        )
-        ->where('pedidos.status', '=', 'Procurando entregador')
+        $pedidos = Pedido::where('pedidos.status', '=', 'Procurando entregador')
         ->orderBy('pedidos.id', 'DESC')
         ->get();
 
