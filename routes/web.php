@@ -54,5 +54,6 @@ Route::controller(PedidoController::class)->group(function () {
     Route::post('/pedido', 'store')->name('pedido.store');
     Route::get('/pedido/enviado/{id}', 'IndexEnviado')->name('pedido.enviado');
     Route::get('/pedido/recebido/{id}', 'IndexRecebido')->name('pedido.recebido');
-    Route::get('/pedidos/aceitar/{id}', 'aceitar')->name('pedido.aceitar');
+    Route::get('/pedido/entrega/{id}', 'aceitar')->name('pedido.aceitar');
+    Route::get('/pedido/concluir/{id}', 'concluir')->name('pedido.concluir');
 });

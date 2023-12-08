@@ -32,7 +32,7 @@ class PedidoController extends Controller
         ->where('pedidos.id', '=', $id)
         ->first();
 
-        $title = 'teste';
+        $title = "Pedido - $pedido->desc";
         $destino = "$pedido->destinatario_rua, $pedido->destinatario_numero - $pedido->destinatario_bairro, $pedido->destinatario_cidade - $pedido->destinatario_uf, $pedido->destinatario_cep";
 
         return view('pedidos.IndexEnviado', ['title' => $title, 'pedido' => $pedido, 'destino' => $destino]);
@@ -60,7 +60,7 @@ class PedidoController extends Controller
         ->where('pedidos.id', '=', $id)
         ->first();
 
-        $title = 'teste';
+        $title = "Pedido - $pedido->desc";
         $origem = "$pedido->remetente_rua, $pedido->remetente_numero - $pedido->remetente_bairro, $pedido->remetente_cidade - $pedido->remetente_uf, $pedido->remetente_cep";
 
         return view('pedidos.IndexRecebido', ['title' => $title, 'pedido' => $pedido, 'origem' => $origem]);
@@ -164,5 +164,19 @@ class PedidoController extends Controller
         ->first();
 
         $destino = "$destinatario->destinatario_rua, $destinatario->destinatario_numero - $destinatario->destinatario_bairro, $destinatario->destinatario_cidade - $destinatario->destinatario_uf, $destinatario->destinatario_cep";
+
+        $title = "Pedido $pedido->desc";
+
+        return view('motoboys.entrega', ['title' => $title, 'pedido' => $pedido, 'remetente' => $remetente, 'origem' => $origem, 'destinatario' => $destinatario, 'destino' => $destino]);
+    }
+
+    public function concluir($id)
+    {
+        Pedido::where('id', $id)
+        ->update([
+            'status' => 'Entrega Conclúida.'
+        ]);
+
+        return redirect()->route('motoboy.dashboard');
     }
 }
