@@ -69,6 +69,12 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready(function () {
+                $("#idpeso").mask('0.00', {reverse: false});
+            });
+    </script>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs&callback=initMap&v=weekly" defer></script>
 
     <script>
@@ -132,24 +138,24 @@
             zoom: 4,
             center: { lat: -15.793889, lng: -47.882778 },
             });
-        
+
             directionsRenderer.setMap(map);
             calculateAndDisplayRoute(directionsService, directionsRenderer);
         }
-        
+
         function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-        
+
             directionsService
                 .route({
                 origin: '{!! Auth::user()->logradouro !!}, {!! Auth::user()->numero !!} - {!! Auth::user()->bairro !!}, {!! Auth::user()->cidade !!} - {!! Auth::user()->uf !!}, {!! Auth::user()->cep !!}',
-                destination: 'Coronel Fabriciano',
+                destination: 'Rua Maria Jorge Selim de Sales, centro, Ipatinga, 104 - mg',
                 travelMode: google.maps.TravelMode['DRIVING'],
                 })
                 .then((response) => {
                 directionsRenderer.setDirections(response);
                 })
         }
-        
+
         window.initMap = initMap;
     </script>
 

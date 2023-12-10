@@ -57,7 +57,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Data</th>
+                                    <th>Pedido</th>
                                     <th>Entregador</th>
                                     <th>Status</th>
                                     <th>Preço</th>
@@ -66,7 +66,7 @@
                             <tbody>
                                 @foreach ($enviados as $enviado)
                                     <tr onclick="location.href='{!! route('pedido.enviado', $enviado->id) !!}'">
-                                        <td>{{ date('d/m/Y', strtotime($enviado->created_at)) }}</td>
+                                        <td><span>{{$enviado->desc}}</span> - {{ date('d/m/Y', strtotime($enviado->created_at)) }}</td>
                                         @if ( $enviado->motoboy_nome )
                                             <td>{{ $enviado->motoboy_nome }}</td>
                                         @endif
@@ -91,7 +91,7 @@
                             <tbody>
                                 @foreach ($recebidos as $recebido)
                                     <tr onclick="location.href='{!! route('pedido.recebido', $recebido->id) !!}'">
-                                        <td>{{ date('d/m/Y', strtotime($recebido->created_at)) }}</td>
+                                        <td><span>{{$recebido->desc}}</span> - {{ date('d/m/Y', strtotime($recebido->created_at)) }}</td>
                                         @if ( $recebido->motoboy_nome )
                                             <td>{{ $recebido->motoboy_nome }}</td>
                                         @endif

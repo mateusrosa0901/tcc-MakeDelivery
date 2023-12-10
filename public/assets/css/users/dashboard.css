@@ -49,7 +49,7 @@ header span:hover {
 
 .left-user {
     width: 20%;
-    box-shadow: 0 0 1em rgb(59, 57, 45);
+    box-shadow: 0 0 1em #3b392d;
 
 }
 
@@ -234,6 +234,10 @@ tr:nth-child(even):hover {
 td {
     font-weight: 500;
     padding: 20px;
+}
+
+td span {
+    text-transform: capitalize;
 }
 
 .d-none {
