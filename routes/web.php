@@ -18,10 +18,6 @@ use App\Http\Controllers\UserDashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::controller(UserController::class)->group(function () {
     Route::get('/user/cadastro', 'create')->name('user.create');
     Route::post('/user', 'store')->name('user.store');
@@ -42,7 +38,7 @@ Route::controller(MotoboyController::class)->group(function () {
 });
 
 Route::controller(UserDashboardController::class)->group(function () {
-    Route::get('/user/dashboard', 'home')->middleware('user.auth')->name('user.dashboard');
+    Route::get('/', 'home')->middleware('user.auth')->name('user.dashboard');
 });
 
 Route::controller(MotoboyDashboardController::class)->group(function () {

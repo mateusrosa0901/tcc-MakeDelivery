@@ -144,7 +144,7 @@ class UserController extends Controller
         //
     }
 
-    public function logout() 
+    public function logout()
     {
         Auth::logout();
 
@@ -164,8 +164,7 @@ class UserController extends Controller
             'users.cep',
         )
         ->where('email', '=', $search)
-        ->limit(1)
-        ->get();
+        ->first();
 
         return response()->json($result);
     }
