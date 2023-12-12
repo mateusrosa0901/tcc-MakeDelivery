@@ -1,0 +1,14 @@
+.create {
+    width: 40%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#map {
+    height: 70%;
+    width: 45%;
+}
