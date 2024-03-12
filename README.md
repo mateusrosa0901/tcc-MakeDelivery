@@ -1,6 +1,8 @@
 <p align="center"><img src="assets/logo md - sem fundo.png" width="400" alt="Make-Delivery Logo"></a></p>
+![Static Badge](https://img.shields.io/badge/Run%20with-Laravel-orange?logo=laravel&logoColor=white)(laravel.com)
 
-## About Laravel
+
+## Introdução
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
