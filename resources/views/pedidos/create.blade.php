@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/users/create.css">
     <link rel="stylesheet" href="/assets/css/pedidos/create.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs&callback=initMap&v=weekly" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={!! $_ENV['MAPS_API_KEY'] !!}&callback=initMap&v=weekly" defer></script>
 @endsection
 
 @section('content')
