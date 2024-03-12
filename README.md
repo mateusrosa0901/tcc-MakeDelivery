@@ -1,5 +1,5 @@
 <p align="center"><img src="assets/logo md - sem fundo.png" width="400" alt="Make-Delivery Logo"></a></p>
-![Static Badge](https://img.shields.io/badge/Run%20with-Laravel-orange?logo=laravel&logoColor=white) (laravel.com)
+![laravel](https://img.shields.io/badge/Run%20with-Laravel-orange?logo=laravel&logoColor=white)
 
 
 ## Introdução
