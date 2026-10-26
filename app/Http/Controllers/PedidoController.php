@@ -86,7 +86,7 @@ class PedidoController extends Controller
         $remetente = User::findOrFail(Auth::user()->id);
         $destinatario = User::where('email', '=', $request->destinatario)->firstOrFail();
 
-        $apiKey = 'AIzaSyA-SfDxtbKlXS6AgOPpQZ4epZnf-zjMeYs';
+        $apiKey = config('services.google_maps.key');
 
         $origem = urlencode("$remetente->logradouro, $remetente->numero - $remetente->bairro, $remetente->cidade - $remetente->uf, $remetente->cep");
         $destino = urlencode("$destinatario->logradouro, $destinatario->numero - $destinatario->bairro, $destinatario->cidade - $destinatario->uf, $destinatario->cep");
